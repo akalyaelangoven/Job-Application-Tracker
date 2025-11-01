@@ -1,0 +1,23 @@
+{
+  "name": "ibm-nj-job-application-tracker",
+  "version": "1.0.0",
+  "description": "A simple client-side Job Application Tracker built using HTML, CSS, and JavaScript for IBM-NJ Project.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx live-server --port=3000",
+    "build": "echo 'No build step required for static project'"
+  },
+  "keywords": [
+    "job-tracker",
+    "application-tracker",
+    "ibm-nj",
+    "client-side",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "live-server": "^1.2.2"

@@ -1,0 +1,14 @@
+[
+  {
+    "company": "IBM",
+    "position": "Frontend Developer",
+    "date": "2025-10-20",
+    "status": "Interview"
+  },
+  {
+    "company": "Google",
+    "position": "Software Engineer",
+    "date": "2025-09-12",
+    "status": "Applied"
+  }
+]
