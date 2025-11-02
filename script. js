@@ -1,0 +1,51 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("application-form");
+  const list = document.getElementById("application-list");
+  let applications = JSON.parse(localStorage.getItem("applications")) || [];
+
+  const saveData = () => localStorage.setItem("applications", JSON.stringify(applications));
+
+  const render = () => {
+    list.innerHTML = "";
+    applications.forEach((app, index) => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${app.company}</td>
+        <td>${app.position}</td>
+        <td>${app.date}</td>
+        <td>${app.status}</td>
+        <td><button class="delete" data-index="${index}">Delete</button></td>
+      `;
+      list.appendChild(row);
+    });
+  };
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const company = document.getElementById("company").value.trim();
+    const position = document.getElementById("position").value.trim();
+    const date = document.getElementById("date").value;
+    const status = document.getElementById("status").value;
+
+    if (!company || !position || !date || !status) {
+      alert("Please fill all fields!");
+      return;
+    }
+
+    applications.push({ company, position, date, status });
+    saveData();
+    render();
+    form.reset();
+  });
+
+  list.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete")) {
+      const index = e.target.getAttribute("data-index");
+      applications.splice(index, 1);
+      saveData();
+      render();
+    }
+  });
+
+  render();
+});
